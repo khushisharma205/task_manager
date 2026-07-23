@@ -8,6 +8,7 @@ const connectDB = require('./config/db');
 
 const app = express();
 const authRoutes = require('./routes/authRoutes');
+const taskRoutes = require('./routes/taskRoutes'); 
 
 // Middleware
 app.use(helmet());
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
+app.use('/api/tasks', taskRoutes); 
 
 // Test route
 app.get('/api/health', (req, res) => {
